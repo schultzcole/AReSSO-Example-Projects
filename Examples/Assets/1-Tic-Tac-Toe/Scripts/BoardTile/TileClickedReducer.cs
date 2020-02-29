@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using TicTacToe.State;
+using UnityEngine;
 
 namespace TicTacToe.BoardTile
 {
@@ -12,10 +13,9 @@ namespace TicTacToe.BoardTile
     /// In this case, I have organized all of the reducers that react to the TileClicked action into a single static
     /// class.
     ///
-    /// It is good to maintain separation of concerns for reducers (for all things, really). Notice how these reducers
-    /// all react to the same action, yet perform different tasks.
+    /// It is good to maintain separation of concerns for reducers. Notice how the "sub-reducers" here
+    /// all react to the same action, yet perform different, discrete tasks.
     /// </remarks>
-    
     public static class TileClickedReducer
     {
         /// This reducer aggregates the sub-reducers in this class.
@@ -23,7 +23,7 @@ namespace TicTacToe.BoardTile
         /// called.
         public static TicTacToeState Reduce(TicTacToeState state, TileClickedAction action)
         {
-            var newBoard = NextBoard(state.Board, state.CurrentPlayer, action);
+            var newBoard = NextBoard(state.Board, state.CurrentPlayer, action.Location);
             var winner = DetermineWinner(newBoard);
             var gameOver = winner != WinState.None;
             var nextPlayer = NextPlayer(state.CurrentPlayer, gameOver);
@@ -35,12 +35,13 @@ namespace TicTacToe.BoardTile
         /// 
         /// Notice that this only returns the new board, it does not return the entire state. This is to give us
         /// some reassurance that it is only modifying the state that it is responsible for.
-        private static BoardState NextBoard(BoardState board, PlayerTag currentPlayer, TileClickedAction action)
+        private static BoardState NextBoard(BoardState board, PlayerTag currentPlayer, Vector2Int location)
         {
-            var (col, row) = (action.Location.x, action.Location.y);
+            var (col, row) = (location.x, location.y);
             return board.SetTile(row, col, currentPlayer);
         }
 
+        /// This reducer takes a board state and determines if there is a winner.
         private static WinState DetermineWinner(BoardState board)
         {
             var rows = Enumerable.Range(0, BoardState.HEIGHT).Select(board.GetRow);
@@ -51,12 +52,15 @@ namespace TicTacToe.BoardTile
                 new[] { board.GetTile(0, 2), board.GetTile(1, 1), board.GetTile(2, 0) }
             };
 
-            var winner = rows.Concat(cols).Concat(diags)
-                .Select(lane => lane.Aggregate((PlayerTag?) null, (acc, next) =>
-                {
-                    if (acc == null || acc == next) return next;
-                    return PlayerTag.None;
-                }) ?? PlayerTag.None)
+            var winner = new [] { rows, cols, diags }
+                .SelectMany(lanes => lanes)
+                .Select(lane =>
+                    lane.Aggregate((PlayerTag?) null, (acc, next) =>
+                        {
+                            if (acc == null || acc == next) return next;
+                            return PlayerTag.None;
+                        }
+                ) ?? PlayerTag.None)
                 .FirstOrDefault(laneSame => laneSame != PlayerTag.None);
             var allFilled = rows.SelectMany(row => row).All(tile => tile != PlayerTag.None);
 
