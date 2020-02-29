@@ -1,14 +1,13 @@
 using AReSSO;
-using UnityEngine;
 
 namespace TicTacToe.BoardTile
 {
     /// An action notifying when a tile is clicked. Action names should follow the convention of ending with "Action"
     public class TileClickedAction : IAction
     {
-        public Vector2Int Location { get; }
+        public GridLocation Location { get; }
 
-        public TileClickedAction(Vector2Int location)
+        public TileClickedAction(GridLocation location)
         {
             Location = location;
         }

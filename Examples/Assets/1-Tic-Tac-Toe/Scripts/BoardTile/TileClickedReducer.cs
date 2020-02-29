@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using TicTacToe.State;
-using UnityEngine;
 
 namespace TicTacToe.BoardTile
 {
@@ -35,11 +34,8 @@ namespace TicTacToe.BoardTile
         /// 
         /// Notice that this only returns the new board, it does not return the entire state. This is to give us
         /// some reassurance that it is only modifying the state that it is responsible for.
-        private static BoardState NextBoard(BoardState board, PlayerTag currentPlayer, Vector2Int location)
-        {
-            var (col, row) = (location.x, location.y);
-            return board.SetTile(row, col, currentPlayer);
-        }
+        private static BoardState NextBoard(BoardState board, PlayerTag currentPlayer, GridLocation location) =>
+            board.SetTile(location.Row, location.Column, currentPlayer);
 
         /// This reducer takes a board state and determines if there is a winner.
         private static WinState DetermineWinner(BoardState board)

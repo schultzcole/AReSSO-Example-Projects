@@ -48,11 +48,5 @@ namespace Scripts.WinModal
                     throw new ArgumentOutOfRangeException(nameof(winner), winner, null);
             }
         }
-
-        /// Called via unity event when the new game button is clicked.
-        public void UEventNewGameButtonClicked()
-        {
-            store.Dispatch(new NewGameAction());
-        }
     }
 }

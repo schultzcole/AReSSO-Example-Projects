@@ -1,4 +1,5 @@
 using System;
+using TicTacToe.BoardTile;
 using TicTacToe.State;
 
 namespace Scripts.Selectors
@@ -20,5 +21,7 @@ namespace Scripts.Selectors
     {
         public static Func<TicTacToeState, PlayerTag> Tile(int row, int col) =>
             state => state.Board.GetTile(row, col);
+
+        public static Func<TicTacToeState, PlayerTag> Tile(GridLocation loc) => Tile(loc.Row, loc.Column);
     }
 }

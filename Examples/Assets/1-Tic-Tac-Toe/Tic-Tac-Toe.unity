@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -141,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (2,0)
+      value: Row 0 Col 2
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -288,6 +293,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Column
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
 --- !u!224 &46397964 stripped
@@ -404,6 +414,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -422,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (1,1)
+      value: Row 1 Col 1
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -568,6 +583,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Column
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
@@ -1359,6 +1384,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -1377,7 +1407,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (1,2)
+      value: Row 2 Col 1
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -1524,6 +1554,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Column
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
 --- !u!224 &1163046127 stripped
@@ -1539,6 +1579,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -1557,7 +1602,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (2,2)
+      value: Row 2 Col 2
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -1704,6 +1749,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Column
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
 --- !u!224 &1273569476 stripped
@@ -1724,6 +1779,7 @@ GameObject:
   - component: {fileID: 1351282530}
   - component: {fileID: 1351282529}
   - component: {fileID: 1351282528}
+  - component: {fileID: 1351282531}
   m_Layer: 5
   m_Name: NG Button
   m_TagString: Untagged
@@ -1794,7 +1850,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1674340160}
+      - m_Target: {fileID: 1351282531}
         m_MethodName: UEventNewGameButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -1841,6 +1897,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351282526}
   m_CullTransparentMesh: 0
+--- !u!114 &1351282531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351282526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b65c4c4ed0404bb42ca7a694132245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  store: {fileID: 1067927428}
 --- !u!1 &1445265563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,6 +2087,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: location.x
@@ -2031,7 +2105,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (1,0)
+      value: Row 0 Col 1
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -2177,6 +2251,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Column
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
@@ -2421,6 +2505,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -2434,7 +2523,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (0,2)
+      value: Row 2 Col 0
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -2581,6 +2670,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
 --- !u!224 &1594769667 stripped
@@ -2657,6 +2751,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -2675,7 +2774,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (2,1)
+      value: Row 1 Col 2
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -2822,6 +2921,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Column
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
 --- !u!224 &1711547949 stripped
@@ -2837,6 +2946,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -2850,7 +2964,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (0,1)
+      value: Row 1 Col 0
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
@@ -2996,6 +3110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266902660909917558, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: Row
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866f2457edd8b02459c35964a84342d9, type: 3}
@@ -3158,6 +3277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 450973669}
     m_Modifications:
+    - target: {fileID: 1155304863884345367, guid: 866f2457edd8b02459c35964a84342d9,
+        type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 1067927428}
     - target: {fileID: 1522409130792895498, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: store
@@ -3166,7 +3290,7 @@ PrefabInstance:
     - target: {fileID: 5266955624200902488, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}
       propertyPath: m_Name
-      value: (0,0)
+      value: Row 0 Col 0
       objectReference: {fileID: 0}
     - target: {fileID: 5266955624200902489, guid: 866f2457edd8b02459c35964a84342d9,
         type: 3}

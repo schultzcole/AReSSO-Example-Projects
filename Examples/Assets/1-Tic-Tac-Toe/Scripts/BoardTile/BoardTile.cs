@@ -13,20 +13,18 @@ namespace TicTacToe.BoardTile
     {
         // ReSharper disable RedundantDefaultMemberInitializer
         // initialize to default to remove compiler warning CS0649
-        [SerializeField] private Vector2Int location = default;
+        [SerializeField] private GridLocation location = default;
         [SerializeField] private TicTacToeStore store = default;
         [SerializeField] private TextMeshProUGUI xText = default;
         [SerializeField] private TextMeshProUGUI oText = default;
         // ReSharper restore RedundantDefaultMemberInitializer
 
-        private bool filled;
-        
         /// Subscriptions to the store should be done in Awake.
         private void Awake()
         {
             // the component gets an observable for its corresponding location in the grid, and reacts to any changes
             // to that location's state.
-            store.ObservableFor(SelectorFor.Tile(location.y, location.x))
+            store.ObservableFor(SelectorFor.Tile(location))
                 .Subscribe(HandleStateChange);
         }
 
@@ -38,31 +36,19 @@ namespace TicTacToe.BoardTile
             switch (newState)
             {
                 case PlayerTag.X:
-                    filled = true;
                     xText.enabled = true;
                     oText.enabled = false;
                     break;
                 case PlayerTag.O:
-                    filled = true;
                     xText.enabled = false;
                     oText.enabled = true;
                     break;
                 case PlayerTag.None:
-                    filled = false;
                     xText.enabled = false;
                     oText.enabled = false;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
-            }
-        }
-
-        /// Called via unity event when the button object in this tile is clicked.
-        public void UEventTileClicked()
-        {
-            if (!filled)
-            {
-                store.Dispatch(new TileClickedAction(location));
             }
         }
     }
