@@ -1,3 +1,4 @@
+using Scripts.Selectors;
 using TicTacToe.State;
 using TMPro;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UniRx;
 
 namespace Scripts.TurnIndicator
 {
+    /// Responsible for updating the UI saying which player's turn it is.
     public class TurnIndicator : MonoBehaviour
     {
         // ReSharper disable RedundantDefaultMemberInitializer
@@ -13,9 +15,10 @@ namespace Scripts.TurnIndicator
         [SerializeField] private TextMeshProUGUI text = default;
         // ReSharper restore RedundantDefaultMemberInitializer
 
+        /// Subscriptions to the store should be done in Awake.
         private void Awake()
         {
-            store.ObservableFor(state => state.CurrentPlayer)
+            store.ObservableFor(Select.CurrentPlayer)
                 .Subscribe(currentPlayer => text.text = $"Turn: {currentPlayer}");
         }
     }

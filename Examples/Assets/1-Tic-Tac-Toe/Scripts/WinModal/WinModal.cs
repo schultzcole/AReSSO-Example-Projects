@@ -1,4 +1,5 @@
 using System;
+using Scripts.Selectors;
 using TicTacToe.State;
 using TMPro;
 using UnityEngine;
@@ -6,42 +7,52 @@ using UniRx;
 
 namespace Scripts.WinModal
 {
+    /// Controller for the modal window that shows up when the game is over.
     public class WinModal : MonoBehaviour
     {
         // ReSharper disable RedundantDefaultMemberInitializer
+        // initialize to default to remove compiler warning CS0649
         [SerializeField] private GameObject modalWindow = default;
         [SerializeField] private TicTacToeStore store = default;
         [SerializeField] private TextMeshProUGUI winMessageText = default;
         // ReSharper restore RedundantDefaultMemberInitializer
 
+        /// Subscriptions to the store should be done in Awake.
         private void Awake()
         {
-            store.ObservableFor(state => state.Winner)
-                .Subscribe(winner =>
-                {
-                    switch (winner)
-                    {
-                        case WinState.None:
-                            modalWindow.SetActive(false);
-                            break;
-                        case WinState.X:
-                        case WinState.O:
-                            modalWindow.SetActive(true);
-                            winMessageText.text = $"{winner} won the game!";
-                            break;
-                        case WinState.Tie:
-                            modalWindow.SetActive(true);
-                            winMessageText.text = "It's a tie!";
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException(nameof(winner), winner, null);
-                    }
-                });
+            store.ObservableFor(Select.Winner)
+                .Subscribe(HandleStateChange);
         }
 
-        public void OnNewGameButtonClick()
+        /// Should be self-explanatory given its simplicity.
+        /// Note that the modal window is inactive by default, yet we still explicitly call out that WinState.None
+        /// should set the window to inactive.
+        /// This is necessary for things to behave well when a new game is created.
+        private void HandleStateChange(WinState winner)
         {
-            store.Dispatch(new NewGame());
+            switch (winner)
+            {
+                case WinState.None:
+                    modalWindow.SetActive(false);
+                    break;
+                case WinState.X:
+                case WinState.O:
+                    modalWindow.SetActive(true);
+                    winMessageText.text = $"{winner} won the game!";
+                    break;
+                case WinState.Tie:
+                    modalWindow.SetActive(true);
+                    winMessageText.text = "It's a tie!";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(winner), winner, null);
+            }
+        }
+
+        /// Called via unity event when the new game button is clicked.
+        public void UEventNewGameButtonClicked()
+        {
+            store.Dispatch(new NewGameAction());
         }
     }
 }
