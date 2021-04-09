@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using AReSSOExamples.TicTacToe.Scripts.Common;
 
 namespace AReSSOExamples.TicTacToe.Scripts.State
 {
@@ -48,7 +49,11 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
 
         /// An easy accessor for a particular location in the grid.
         [Pure]
-        public PlayerTag GetTile(int row, int col) => Board[row][col];
+        public PlayerTag GetGridLoc(int row, int col) => Board[row][col];
+
+        [Pure]
+        public PlayerTag GetGridLoc(GridLocation location) =>
+            GetGridLoc(location.Row, location.Column);
 
         /// A "setter". This doesn't actually modify the current state, it returns a new state with the modification.
         [Pure]

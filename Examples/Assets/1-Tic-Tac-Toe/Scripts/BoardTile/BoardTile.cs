@@ -1,5 +1,7 @@
 using System;
+using AReSSOExamples.TicTacToe.Scripts.Common;
 using AReSSOExamples.TicTacToe.Scripts.State;
+using AReSSOExamples.TicTacToe.Scripts.State.Actions;
 using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
 using TMPro;
 using UniRx;
@@ -8,7 +10,8 @@ using UnityEngine;
 namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
 {
     /// A single square on the tic-tac-toe board
-    /// Reacts to changes in state of the particular location on the board that this BoardTile corresponds to.
+    /// This acts as both a producer of TileClickedActions
+    /// as well as a consumer of state updates for the specific tile this represents.
     public class BoardTile : MonoBehaviour
     {
         // ReSharper disable RedundantDefaultMemberInitializer
@@ -24,8 +27,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
         {
             // the component gets an observable for its corresponding location in the grid, and reacts to any changes
             // to that location's state.
-            store.ObservableFor(SelectorFor.Tile(location))
-                .Subscribe(HandleStateChange);
+            store.ObservableFor(SelectorFor.GridLoc(location)).Subscribe(HandleStateChange);
         }
 
         /// Note that we explicitly set this component's relevant state for each case.
@@ -49,6 +51,15 @@ namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            }
+        }
+        
+        /// Called via unity event when the button object in this tile is clicked.
+        public void UEventTileClicked()
+        {
+            if (store.Select(SelectorFor.GridLoc(location)) == PlayerTag.None)
+            {
+                store.Dispatch(new TileClickedAction(location));
             }
         }
     }

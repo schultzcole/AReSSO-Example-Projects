@@ -1,5 +1,5 @@
 using System;
-using AReSSOExamples.TicTacToe.Scripts.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.Common;
 
 namespace AReSSOExamples.TicTacToe.Scripts.State.Selectors
 {
@@ -14,13 +14,13 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Selectors
         public static PlayerTag CurrentPlayer(TicTacToeState state) => state.CurrentPlayer;
         public static WinState Winner(TicTacToeState state) => state.Winner;
     }
-    
+
     /// These are what I call selector generators. SelectorFor.Tile is not a selector itself, it *returns* a selector.
     public static class SelectorFor
     {
-        public static Func<TicTacToeState, PlayerTag> Tile(int row, int col) =>
-            state => state.Board.GetTile(row, col);
-
-        public static Func<TicTacToeState, PlayerTag> Tile(GridLocation loc) => Tile(loc.Row, loc.Column);
+        public static Func<TicTacToeState, PlayerTag> GridLoc(GridLocation loc)
+        {
+            return state => state.Board.GetGridLoc(loc);
+        }
     }
 }

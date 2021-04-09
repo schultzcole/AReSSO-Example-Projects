@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using AReSSOExamples.TicTacToe.Scripts.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.Common;
 using AReSSOExamples.TicTacToe.Scripts.State.Actions;
 
 namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
@@ -45,8 +45,8 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
             var cols = Enumerable.Range(0, BoardState.HEIGHT).Select(board.GetCol);
             var diags = new[]
             {
-                new[] { board.GetTile(0, 0), board.GetTile(1, 1), board.GetTile(2, 2) },
-                new[] { board.GetTile(0, 2), board.GetTile(1, 1), board.GetTile(2, 0) }
+                new[] { board.GetGridLoc(0, 0), board.GetGridLoc(1, 1), board.GetGridLoc(2, 2) },
+                new[] { board.GetGridLoc(0, 2), board.GetGridLoc(1, 1), board.GetGridLoc(2, 0) }
             };
 
             var winner = new [] { rows, cols, diags }

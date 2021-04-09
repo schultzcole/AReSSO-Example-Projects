@@ -1,5 +1,5 @@
 using AReSSO;
-using AReSSOExamples.TicTacToe.Scripts.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.Common;
 
 namespace AReSSOExamples.TicTacToe.Scripts.State.Actions
 {
