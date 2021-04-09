@@ -1,8 +1,8 @@
 using System;
-using TicTacToe.BoardTile;
-using TicTacToe.State;
+using AReSSOExamples.TicTacToe.Scripts.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.State;
 
-namespace Scripts.Selectors
+namespace AReSSOExamples.TicTacToe.Scripts.Selectors
 {
     /// Selectors pull the concern of navigating the state tree out of state consumers and into its own module.
     /// These selectors are quite basic, but in more complicated cases, it can be especially useful to not have to

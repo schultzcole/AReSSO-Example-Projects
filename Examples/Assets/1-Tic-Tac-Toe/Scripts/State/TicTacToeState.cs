@@ -1,7 +1,7 @@
 using System;
 using AReSSO.CopyUtils;
 
-namespace TicTacToe.State
+namespace AReSSOExamples.TicTacToe.Scripts.State
 {
     /// Root state object for the tic tac toe game.
     /// Note that it implements IEquatable. This is required so that the Store will know when any property of the

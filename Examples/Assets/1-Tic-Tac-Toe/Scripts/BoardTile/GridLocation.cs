@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TicTacToe.BoardTile
+namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
 {
     public class GridLocation : MonoBehaviour
     {

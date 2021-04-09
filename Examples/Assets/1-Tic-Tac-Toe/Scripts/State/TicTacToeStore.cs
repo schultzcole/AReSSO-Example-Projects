@@ -1,9 +1,9 @@
 ﻿using AReSSO;
 using AReSSO.Store;
-using TicTacToe.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.BoardTile;
 using UnityEngine;
 
-namespace TicTacToe.State
+namespace AReSSOExamples.TicTacToe.Scripts.State
 {
     /// The main store for the TicTacToe game.
     ///

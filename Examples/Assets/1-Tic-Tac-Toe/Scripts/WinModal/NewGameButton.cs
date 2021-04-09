@@ -1,7 +1,7 @@
-using TicTacToe.State;
+using AReSSOExamples.TicTacToe.Scripts.State;
 using UnityEngine;
 
-namespace Scripts.WinModal
+namespace AReSSOExamples.TicTacToe.Scripts.WinModal
 {
     public class NewGameButton : MonoBehaviour
     {

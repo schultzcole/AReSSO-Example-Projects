@@ -1,10 +1,10 @@
-using Scripts.Selectors;
-using TicTacToe.State;
+using AReSSOExamples.TicTacToe.Scripts.Selectors;
+using AReSSOExamples.TicTacToe.Scripts.State;
 using TMPro;
-using UnityEngine;
 using UniRx;
+using UnityEngine;
 
-namespace Scripts.TurnIndicator
+namespace AReSSOExamples.TicTacToe.Scripts.TurnIndicator
 {
     /// Responsible for updating the UI saying which player's turn it is.
     public class TurnIndicator : MonoBehaviour

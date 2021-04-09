@@ -1,11 +1,11 @@
 using System;
-using Scripts.Selectors;
-using TicTacToe.State;
+using AReSSOExamples.TicTacToe.Scripts.Selectors;
+using AReSSOExamples.TicTacToe.Scripts.State;
 using TMPro;
-using UnityEngine;
 using UniRx;
+using UnityEngine;
 
-namespace TicTacToe.BoardTile
+namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
 {
     /// A single square on the tic-tac-toe board
     /// Reacts to changes in state of the particular location on the board that this BoardTile corresponds to.

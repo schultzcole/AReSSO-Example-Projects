@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
-namespace TicTacToe.State
+namespace AReSSOExamples.TicTacToe.Scripts.State
 {
     /// Holds on to the board state and exposes it in a friendly interface.
     public class BoardState : IEquatable<BoardState>

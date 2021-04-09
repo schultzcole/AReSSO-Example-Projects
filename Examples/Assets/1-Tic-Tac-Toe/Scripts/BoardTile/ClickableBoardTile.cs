@@ -1,8 +1,8 @@
-using Scripts.Selectors;
-using TicTacToe.State;
+using AReSSOExamples.TicTacToe.Scripts.Selectors;
+using AReSSOExamples.TicTacToe.Scripts.State;
 using UnityEngine;
 
-namespace TicTacToe.BoardTile
+namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
 {
     public class ClickableBoardTile : MonoBehaviour
     {

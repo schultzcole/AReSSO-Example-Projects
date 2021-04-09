@@ -1,11 +1,11 @@
 using System;
-using Scripts.Selectors;
-using TicTacToe.State;
+using AReSSOExamples.TicTacToe.Scripts.Selectors;
+using AReSSOExamples.TicTacToe.Scripts.State;
 using TMPro;
-using UnityEngine;
 using UniRx;
+using UnityEngine;
 
-namespace Scripts.WinModal
+namespace AReSSOExamples.TicTacToe.Scripts.WinModal
 {
     /// Controller for the modal window that shows up when the game is over.
     public class WinModal : MonoBehaviour

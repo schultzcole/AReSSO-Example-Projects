@@ -1,5 +1,6 @@
 {
     "name": "TicTacToe",
+    "rootNamespace": "AReSSOExamples.TicTacToe",
     "references": [
         "GUID:1b0ba1c813752254a9500a93c914f473",
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
