@@ -1,8 +1,9 @@
 using System;
 using System.Linq;
-using AReSSOExamples.TicTacToe.Scripts.State;
+using AReSSOExamples.TicTacToe.Scripts.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.State.Actions;
 
-namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
+namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
 {
     /// <summary>
     /// A set of reducers that react to the TileClicked Action.

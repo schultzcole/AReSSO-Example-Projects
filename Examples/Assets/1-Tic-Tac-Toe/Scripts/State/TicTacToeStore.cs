@@ -1,6 +1,7 @@
 ﻿using AReSSO;
 using AReSSO.Store;
-using AReSSOExamples.TicTacToe.Scripts.BoardTile;
+using AReSSOExamples.TicTacToe.Scripts.State.Actions;
+using AReSSOExamples.TicTacToe.Scripts.State.Reducers;
 using UnityEngine;
 
 namespace AReSSOExamples.TicTacToe.Scripts.State

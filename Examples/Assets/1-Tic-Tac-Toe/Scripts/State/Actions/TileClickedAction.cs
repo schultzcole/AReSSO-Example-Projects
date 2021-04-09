@@ -1,6 +1,7 @@
 using AReSSO;
+using AReSSOExamples.TicTacToe.Scripts.BoardTile;
 
-namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
+namespace AReSSOExamples.TicTacToe.Scripts.State.Actions
 {
     /// An action notifying when a tile is clicked. Action names should follow the convention of ending with "Action"
     public class TileClickedAction : IAction

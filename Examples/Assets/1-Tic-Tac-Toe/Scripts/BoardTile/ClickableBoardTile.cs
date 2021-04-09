@@ -1,5 +1,6 @@
-using AReSSOExamples.TicTacToe.Scripts.Selectors;
 using AReSSOExamples.TicTacToe.Scripts.State;
+using AReSSOExamples.TicTacToe.Scripts.State.Actions;
+using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
 using UnityEngine;
 
 namespace AReSSOExamples.TicTacToe.Scripts.BoardTile

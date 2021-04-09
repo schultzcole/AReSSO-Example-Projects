@@ -1,5 +1,5 @@
-using AReSSOExamples.TicTacToe.Scripts.Selectors;
 using AReSSOExamples.TicTacToe.Scripts.State;
+using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
 using TMPro;
 using UniRx;
 using UnityEngine;
