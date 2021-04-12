@@ -1,3 +1,4 @@
+#nullable enable
 using AReSSOExamples.TicTacToe.Scripts.State;
 using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
 using TMPro;
@@ -9,17 +10,14 @@ namespace AReSSOExamples.TicTacToe.Scripts.TurnIndicator
     /// Responsible for updating the UI saying which player's turn it is.
     public class TurnIndicator : MonoBehaviour
     {
-        // ReSharper disable RedundantDefaultMemberInitializer
-        // initialize to default to remove compiler warning CS0649
-        [SerializeField] private TicTacToeStore store = default;
-        [SerializeField] private TextMeshProUGUI text = default;
-        // ReSharper restore RedundantDefaultMemberInitializer
+        [SerializeField] private TicTacToeStore? store;
+        [SerializeField] private TextMeshProUGUI? text;
 
         /// Subscriptions to the store should be done in Awake.
         private void Awake()
         {
-            store.ObservableFor(Select.CurrentPlayer)
-                .Subscribe(currentPlayer => text.text = $"Turn: {currentPlayer}");
+            store!.ObservableFor(Select.CurrentPlayer)
+                .Subscribe(currentPlayer => text!.text = $"Turn: {currentPlayer}");
         }
     }
 }

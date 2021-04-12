@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using AReSSOExamples.TicTacToe.Scripts.State;
 using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
@@ -10,17 +11,14 @@ namespace AReSSOExamples.TicTacToe.Scripts.WinModal
     /// Controller for the modal window that shows up when the game is over.
     public class WinModal : MonoBehaviour
     {
-        // ReSharper disable RedundantDefaultMemberInitializer
-        // initialize to default to remove compiler warning CS0649
-        [SerializeField] private GameObject modalWindow = default;
-        [SerializeField] private TicTacToeStore store = default;
-        [SerializeField] private TextMeshProUGUI winMessageText = default;
-        // ReSharper restore RedundantDefaultMemberInitializer
+        [SerializeField] private GameObject? modalWindow;
+        [SerializeField] private TicTacToeStore? store;
+        [SerializeField] private TextMeshProUGUI? winMessageText;
 
         /// Subscriptions to the store should be done in Awake.
         private void Awake()
         {
-            store.ObservableFor(Select.Winner)
+            store!.ObservableFor(Select.Winner)
                 .Subscribe(HandleStateChange);
         }
 
@@ -33,16 +31,16 @@ namespace AReSSOExamples.TicTacToe.Scripts.WinModal
             switch (winner)
             {
                 case WinState.None:
-                    modalWindow.SetActive(false);
+                    modalWindow!.SetActive(false);
                     break;
                 case WinState.X:
                 case WinState.O:
-                    modalWindow.SetActive(true);
-                    winMessageText.text = $"{winner} won the game!";
+                    modalWindow!.SetActive(true);
+                    winMessageText!.text = $"{winner} won the game!";
                     break;
                 case WinState.Tie:
-                    modalWindow.SetActive(true);
-                    winMessageText.text = "It's a tie!";
+                    modalWindow!.SetActive(true);
+                    winMessageText!.text = "It's a tie!";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(winner), winner, null);

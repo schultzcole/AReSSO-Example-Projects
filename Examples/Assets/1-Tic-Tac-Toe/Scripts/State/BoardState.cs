@@ -1,3 +1,4 @@
+#nullable enable
 using System.Diagnostics.Contracts;
 using System.Linq;
 using AReSSOExamples.TicTacToe.Scripts.Common;

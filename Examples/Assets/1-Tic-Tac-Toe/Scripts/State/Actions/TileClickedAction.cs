@@ -1,3 +1,4 @@
+#nullable enable
 using AReSSO;
 using AReSSOExamples.TicTacToe.Scripts.Common;
 

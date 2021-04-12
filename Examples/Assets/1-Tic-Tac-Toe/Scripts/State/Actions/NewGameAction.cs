@@ -1,3 +1,4 @@
+#nullable enable
 using AReSSO;
 
 namespace AReSSOExamples.TicTacToe.Scripts.State.Actions
