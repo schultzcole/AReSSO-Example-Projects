@@ -24,15 +24,12 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
         private static TicTacToeState RootReducer(TicTacToeState state, IAction action)
         {
             Debug.Log($"<b>Action dispatched:</b>\n\t{action}");
-            switch (action)
+            return action switch
             {
-                case NewGameAction:
-                    return new TicTacToeState(PlayerTag.X);
-                case TileClickedAction tileClicked:
-                    return TileClickedReducer.Reduce(state, tileClicked);
-            }
-
-            return state;
+                NewGameAction => new TicTacToeState(PlayerTag.X),
+                TileClickedAction tileClicked => TileClickedReducer.Reduce(state, tileClicked),
+                _ => state
+            };
         }
     }
 }

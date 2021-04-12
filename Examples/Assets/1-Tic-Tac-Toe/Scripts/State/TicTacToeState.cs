@@ -11,29 +11,23 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
         /// Public constructor just needs to know which player is starting. Other properties have known defaults.
         public TicTacToeState(PlayerTag startingPlayer) : this(new BoardState(), startingPlayer, WinState.None) { }
     }
-    
+
     /// There appears to be significant overlap between these enums, but they are semantically different.
     /// Combining them would be an error and would lead to impossible state being possible.
     public enum PlayerTag { None, X, O }
+
     public enum WinState { None, X, O, Tie }
 
     public static class PlayerTagExtensions
     {
         /// Easy converter to convert between player tag and win state.
         /// Note that PlayerTag.None maps to different output values based on the allFilled parameter.
-        public static WinState ToWinState(this PlayerTag player, bool allFilled)
+        public static WinState ToWinState(this PlayerTag player, bool allFilled) => player switch
         {
-            switch (player)
-            {
-                case PlayerTag.None:
-                    return allFilled ? WinState.Tie : WinState.None;
-                case PlayerTag.X:
-                    return WinState.X;
-                case PlayerTag.O:
-                    return WinState.X;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(player), player, null);
-            }
-        }
+            PlayerTag.None => allFilled ? WinState.Tie : WinState.None,
+            PlayerTag.X => WinState.X,
+            PlayerTag.O => WinState.X,
+            _ => throw new ArgumentOutOfRangeException(nameof(player), player, null)
+        };
     }
 }

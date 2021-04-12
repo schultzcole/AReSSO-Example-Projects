@@ -30,7 +30,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
             var nextPlayer = NextPlayer(state.CurrentPlayer, gameOver);
             return state with { Board = newBoard, CurrentPlayer = nextPlayer, Winner = winner };
         }
-        
+
         /// This reducer updates the board to the next state based on the current player and the location
         /// that was clicked.
         /// 
@@ -50,7 +50,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
                 new[] { board.GetGridLoc(0, 2), board.GetGridLoc(1, 1), board.GetGridLoc(2, 0) }
             };
 
-            var winner = new [] { rows, cols, diags }
+            var winner = new[] { rows, cols, diags }
                 .SelectMany(lanes => lanes)
                 .Select(lane =>
                     lane.Aggregate((PlayerTag?) null, (acc, next) =>
@@ -58,7 +58,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
                             if (acc == null || acc == next) return next;
                             return PlayerTag.None;
                         }
-                ) ?? PlayerTag.None)
+                    ) ?? PlayerTag.None)
                 .FirstOrDefault(laneSame => laneSame != PlayerTag.None);
             var allFilled = rows.SelectMany(row => row).All(tile => tile != PlayerTag.None);
 
@@ -71,23 +71,13 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
         /// thing that will accomplish its goal. In a more complicated game with more players, or a variable number of
         /// players, more advanced logic would be necessary, but that is not necessary here and would just
         /// make it more difficult to understand.
-        private static PlayerTag NextPlayer(PlayerTag currentPlayer, bool gameOver)
+        private static PlayerTag NextPlayer(PlayerTag currentPlayer, bool gameOver) => (gameOver, currentPlayer) switch
         {
-            if (gameOver)
-            {
-                return PlayerTag.None;
-            }
-            switch (currentPlayer)
-            {
-                case PlayerTag.X:
-                    return PlayerTag.O;
-                case PlayerTag.O:
-                    return PlayerTag.X;
-                case PlayerTag.None:
-                    return PlayerTag.X;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(currentPlayer), currentPlayer, null);
-            }
-        }
+            (true, _) => PlayerTag.None,
+            (_, PlayerTag.X) => PlayerTag.O,
+            (_, PlayerTag.O) => PlayerTag.X,
+            (_, PlayerTag.None) => PlayerTag.X,
+            _ => throw new ArgumentOutOfRangeException(nameof(currentPlayer), currentPlayer, null)
+        };
     }
 }
