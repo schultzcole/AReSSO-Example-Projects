@@ -58,7 +58,8 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
                             if (acc == null || acc == next) return next;
                             return PlayerTag.None;
                         }
-                    ) ?? PlayerTag.None)
+                    ) ?? PlayerTag.None
+                )
                 .FirstOrDefault(laneSame => laneSame != PlayerTag.None);
             var allFilled = rows.SelectMany(row => row).All(tile => tile != PlayerTag.None);
 
@@ -74,9 +75,9 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
         private static PlayerTag NextPlayer(PlayerTag currentPlayer, bool gameOver) => (gameOver, currentPlayer) switch
         {
             (true, _) => PlayerTag.None,
-            (_, PlayerTag.X) => PlayerTag.O,
-            (_, PlayerTag.O) => PlayerTag.X,
-            (_, PlayerTag.None) => PlayerTag.X,
+            (false, PlayerTag.X) => PlayerTag.O,
+            (false, PlayerTag.O) => PlayerTag.X,
+            (false, PlayerTag.None) => PlayerTag.X,
             _ => throw new ArgumentOutOfRangeException(nameof(currentPlayer), currentPlayer, null)
         };
     }
