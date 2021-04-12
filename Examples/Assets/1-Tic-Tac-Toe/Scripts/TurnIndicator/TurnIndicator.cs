@@ -1,11 +1,11 @@
 #nullable enable
-using AReSSOExamples.TicTacToe.Scripts.State;
-using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
+using PlayduxExamples.TicTacToe.Scripts.State;
+using PlayduxExamples.TicTacToe.Scripts.State.Selectors;
 using TMPro;
 using UniRx;
 using UnityEngine;
 
-namespace AReSSOExamples.TicTacToe.Scripts.TurnIndicator
+namespace PlayduxExamples.TicTacToe.Scripts.TurnIndicator
 {
     /// Responsible for updating the UI saying which player's turn it is.
     public class TurnIndicator : MonoBehaviour

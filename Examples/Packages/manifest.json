@@ -12,7 +12,7 @@
     "com.unity.timeline": "1.6.0-pre.3",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "0.1.19-preview",
     "com.unity.ugui": "1.0.0",
-    "dev.coleschultz.aresso": "https://github.com/schultzcole/AReSSO.git",
+    "dev.coleschultz.playdux": "git@github.com:schultzcole/Playdux.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

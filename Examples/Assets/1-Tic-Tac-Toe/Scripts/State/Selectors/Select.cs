@@ -1,8 +1,8 @@
 #nullable enable
 using System;
-using AReSSOExamples.TicTacToe.Scripts.Common;
+using PlayduxExamples.TicTacToe.Scripts.Common;
 
-namespace AReSSOExamples.TicTacToe.Scripts.State.Selectors
+namespace PlayduxExamples.TicTacToe.Scripts.State.Selectors
 {
     /// Selectors pull the concern of navigating the state tree out of state consumers and into its own module.
     /// These selectors are quite basic, but in more complicated cases, it can be especially useful to not have to

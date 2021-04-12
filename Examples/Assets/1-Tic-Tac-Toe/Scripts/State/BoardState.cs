@@ -1,9 +1,9 @@
 #nullable enable
 using System.Diagnostics.Contracts;
 using System.Linq;
-using AReSSOExamples.TicTacToe.Scripts.Common;
+using PlayduxExamples.TicTacToe.Scripts.Common;
 
-namespace AReSSOExamples.TicTacToe.Scripts.State
+namespace PlayduxExamples.TicTacToe.Scripts.State
 {
     /// Holds on to the board state and exposes it in a friendly interface.
     public record BoardState

@@ -1,9 +1,9 @@
 #nullable enable
-using AReSSOExamples.TicTacToe.Scripts.State;
-using AReSSOExamples.TicTacToe.Scripts.State.Actions;
+using Playdux.src.Store;
+using PlayduxExamples.TicTacToe.Scripts.State;
 using UnityEngine;
 
-namespace AReSSOExamples.TicTacToe.Scripts.WinModal
+namespace PlayduxExamples.TicTacToe.Scripts.WinModal
 {
     public class NewGameButton : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.WinModal
         /// Called via unity event when the new game button is clicked.
         public void UEventNewGameButtonClicked()
         {
-            store!.Dispatch(new NewGameAction());
+            store!.Dispatch(new InitializeAction<TicTacToeState>(TicTacToeState.InitialState));
         }
     }
 }

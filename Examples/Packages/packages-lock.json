@@ -160,14 +160,14 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "dev.coleschultz.aresso": {
-      "version": "https://github.com/schultzcole/AReSSO.git",
+    "dev.coleschultz.playdux": {
+      "version": "git@github.com:schultzcole/Playdux.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.neuecc.unirx": "7.1.0"
       },
-      "hash": "fd4f0f0a99c3e43e61e6c87a85cdc911e0d1fe0c"
+      "hash": "87e9cbe93984c7fbc4f846179e6e49b6f31d37bc"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

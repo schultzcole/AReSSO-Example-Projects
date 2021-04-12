@@ -1,12 +1,12 @@
 #nullable enable
 using System;
-using AReSSOExamples.TicTacToe.Scripts.State;
-using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
+using PlayduxExamples.TicTacToe.Scripts.State;
+using PlayduxExamples.TicTacToe.Scripts.State.Selectors;
 using TMPro;
 using UniRx;
 using UnityEngine;
 
-namespace AReSSOExamples.TicTacToe.Scripts.WinModal
+namespace PlayduxExamples.TicTacToe.Scripts.WinModal
 {
     /// Controller for the modal window that shows up when the game is over.
     public class WinModal : MonoBehaviour

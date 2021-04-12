@@ -1,11 +1,10 @@
 ﻿#nullable enable
-using AReSSO;
-using AReSSO.Store;
-using AReSSOExamples.TicTacToe.Scripts.State.Actions;
-using AReSSOExamples.TicTacToe.Scripts.State.Reducers;
+using Playdux.src.Store;
+using PlayduxExamples.TicTacToe.Scripts.State.Actions;
+using PlayduxExamples.TicTacToe.Scripts.State.Reducers;
 using UnityEngine;
 
-namespace AReSSOExamples.TicTacToe.Scripts.State
+namespace PlayduxExamples.TicTacToe.Scripts.State
 {
     /// The main store for the TicTacToe game.
     ///
@@ -15,8 +14,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
     {
         protected override Store<TicTacToeState> InitializeStore()
         {
-            var initialState = new TicTacToeState(PlayerTag.X);
-            return new Store<TicTacToeState>(initialState, RootReducer);
+            return new(TicTacToeState.InitialState, RootReducer);
         }
 
         /// The root reducer delegates certain action types to different sub-reducers.
@@ -26,7 +24,6 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
             Debug.Log($"<b>Action dispatched:</b>\n\t{action}");
             return action switch
             {
-                NewGameAction => new TicTacToeState(PlayerTag.X),
                 TileClickedAction tileClicked => TileClickedReducer.Reduce(state, tileClicked),
                 _ => state
             };

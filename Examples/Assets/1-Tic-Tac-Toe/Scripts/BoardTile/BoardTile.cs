@@ -1,14 +1,14 @@
 #nullable enable
 using System;
-using AReSSOExamples.TicTacToe.Scripts.Common;
-using AReSSOExamples.TicTacToe.Scripts.State;
-using AReSSOExamples.TicTacToe.Scripts.State.Actions;
-using AReSSOExamples.TicTacToe.Scripts.State.Selectors;
+using PlayduxExamples.TicTacToe.Scripts.Common;
+using PlayduxExamples.TicTacToe.Scripts.State;
+using PlayduxExamples.TicTacToe.Scripts.State.Actions;
+using PlayduxExamples.TicTacToe.Scripts.State.Selectors;
 using TMPro;
 using UniRx;
 using UnityEngine;
 
-namespace AReSSOExamples.TicTacToe.Scripts.BoardTile
+namespace PlayduxExamples.TicTacToe.Scripts.BoardTile
 {
     /// A single square on the tic-tac-toe board
     /// This acts as both a producer of TileClickedActions
