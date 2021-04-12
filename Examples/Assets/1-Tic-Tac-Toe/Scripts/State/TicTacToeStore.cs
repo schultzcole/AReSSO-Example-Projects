@@ -26,7 +26,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
             Debug.Log($"<b>Action dispatched:</b>\n\t{action}");
             switch (action)
             {
-                case NewGameAction _:
+                case NewGameAction:
                     return new TicTacToeState(PlayerTag.X);
                 case TileClickedAction tileClicked:
                     return TileClickedReducer.Reduce(state, tileClicked);
