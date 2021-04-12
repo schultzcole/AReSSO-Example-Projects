@@ -26,7 +26,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State
         {
             PlayerTag.None => allFilled ? WinState.Tie : WinState.None,
             PlayerTag.X => WinState.X,
-            PlayerTag.O => WinState.X,
+            PlayerTag.O => WinState.O,
             _ => throw new ArgumentOutOfRangeException(nameof(player), player, null)
         };
     }
