@@ -28,7 +28,7 @@ namespace AReSSOExamples.TicTacToe.Scripts.State.Reducers
             var winner = DetermineWinner(newBoard);
             var gameOver = winner != WinState.None;
             var nextPlayer = NextPlayer(state.CurrentPlayer, gameOver);
-            return state.Copy(newBoard, nextPlayer, winner);
+            return state with { Board = newBoard, CurrentPlayer = nextPlayer, Winner = winner };
         }
         
         /// This reducer updates the board to the next state based on the current player and the location
