@@ -1,0 +1,16 @@
+{
+    "name": "ImageLoader",
+    "rootNamespace": "ImageLoader",
+    "references": [
+        "GUID:1b0ba1c813752254a9500a93c914f473"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
