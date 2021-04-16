@@ -15,4 +15,7 @@ namespace ImageLoader.Scripts.State.Actions
 
     /// Indicates that an image request has completed
     public record ImageResultAction(int Slot, Texture2D Image) : IAction;
+
+    /// Clears a slot back to empty
+    public record ClearImageSlotAction(int Slot) : IAction;
 }

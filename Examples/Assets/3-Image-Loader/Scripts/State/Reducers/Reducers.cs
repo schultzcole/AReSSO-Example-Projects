@@ -67,17 +67,31 @@ namespace ImageLoader.Scripts.State.Reducers
             var (index, texture) = action;
 
             Validate(images);
-
-            var slot = images[index] as ImageBox.Loading;
-            if (slot is null) throw new ArgumentException($"Specified slot is not {nameof(ImageBox)}.{nameof(ImageBox.Loading)}", $"{nameof(action)}.{nameof(action.Slot)}");
+            var slot = EnforceSlotType<ImageBox.Loading>(images[index]);
 
             var newImageBox = slot.TransitionToLoaded(texture);
+            return SetItem(images, index, newImageBox);
+        }
+
+        public static ImageBox[] ReduceClearSlot(ImageBox[] images, ClearImageSlotAction action)
+        {
+            var index = action.Slot;
+            Validate(images);
+            var slot = EnforceSlotType<ImageBox.Loaded>(images[index]);
+
+            var newImageBox = slot.TransitionToEmpty();
             return SetItem(images, index, newImageBox);
         }
 
         private static void Validate(ImageBox[] images)
         {
             if (images.Length < 1) throw new ArgumentException("Can't modify slot in empty array", nameof(images));
+        }
+
+        private static T EnforceSlotType<T>(ImageBox slot) where T : ImageBox
+        {
+            if (slot is T castSlot) return castSlot;
+            throw new InvalidOperationException($"Slot is not expected type {nameof(ImageBox)}.{typeof(T).Name} | actual: {nameof(ImageBox)}.{slot.GetType().Name}");
         }
     }
 }

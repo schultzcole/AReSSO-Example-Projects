@@ -46,7 +46,7 @@ namespace ImageLoader.Tests.State.Reducers
         {
             var initialArray = new ImageBox[] { new ImageBox.Empty() };
 
-            Assert.Throws<ArgumentException>(
+            Assert.Throws<InvalidOperationException>(
                 () => ModifyImageSlotReducer.ReduceImageResult(initialArray, new ImageResultAction(0, Texture2D.whiteTexture)),
                 "Reducer did not throw Argument exception when targeting non Loading slot"
             );

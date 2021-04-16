@@ -27,9 +27,11 @@ namespace ImageLoader.Scripts.State
         }
 
         /// The image box has an image loaded and ready to display
-        public sealed record Loaded(Texture2D Texture) : ImageBox;
+        public sealed record Loaded(Texture2D Texture) : ImageBox
+        {
+            public Empty TransitionToEmpty() => new() { ID = ID };
+        }
 
-        public Empty TransitionToEmpty() => new() { ID = ID };
         public Loading TransitionToLoading(string url) => new(url) { ID = ID };
     }
 }
