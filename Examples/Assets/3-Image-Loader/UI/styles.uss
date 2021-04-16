@@ -1,0 +1,73 @@
+#content {
+    width: 50%;
+    min-width: 400px;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.ui-panel {
+    background-color: rgba(0, 0, 0, .2);
+    padding: 10px;
+}
+
+.header {
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+#image-box-container-scrollview {
+    align-items: center;
+    align-content: stretch;
+}
+
+#image-box-container-scrollview Scroller {
+    height: 100%;
+}
+
+#image-box-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 24px; /* account for scrollbar */
+}
+
+.image-box {
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    border-width: 2px;
+    border-radius: 16px;
+    border-color: black;
+    margin: 4px;
+    padding: 8px;
+    padding-bottom: 0;
+    color: black;
+}
+
+[blah] > .image-box {
+    color: red;
+}
+
+.image-box:hover {
+    border-color: white;
+}
+
+.image-box Button {
+    padding: 2px 8px;
+    margin: 4px 0;
+}
+
+.image-box Label {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.image-box > Image {
+    background-color: rgba(255, 255, 255, .4);
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    
+}

@@ -2,7 +2,9 @@
     "name": "ImageLoader",
     "rootNamespace": "ImageLoader",
     "references": [
-        "GUID:1b0ba1c813752254a9500a93c914f473"
+        "GUID:1b0ba1c813752254a9500a93c914f473",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

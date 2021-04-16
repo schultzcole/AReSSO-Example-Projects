@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="styles.uss"/>
+    <ui:GroupBox class="image-box">
+        <ui:Image />
+        <ui:Button>
+            <ui:Label text="Some Text" display-tooltip-when-elided="true"/>
+        </ui:Button>
+    </ui:GroupBox>
+</ui:UXML>

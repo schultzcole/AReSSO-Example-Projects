@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="styles.uss"/>
+    <ui:Template src="ImageBox.uxml" name="ImageBox"/>
+    <ui:VisualElement name="content">
+        <ui:Label class="header ui-panel" text="My Image List"/>
+        <ui:ScrollView name="image-box-container-scrollview" class="ui-panel">
+            <ui:VisualElement name="image-box-container">
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+                <ui:Instance template="ImageBox"/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
