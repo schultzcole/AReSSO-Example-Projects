@@ -1,7 +1,6 @@
 #nullable enable
 using System;
 using ImageLoader.Scripts.State.Actions;
-using UnityEngine;
 
 namespace ImageLoader.Scripts.State.Reducers
 {
