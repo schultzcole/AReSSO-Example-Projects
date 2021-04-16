@@ -9,9 +9,12 @@ namespace ImageLoader.Scripts.State
     public record ImageLoaderState(ImageBox[] Images);
 
     /// Represents the state of a specific image in the list
-    public abstract record ImageBox(Guid ID)
+    public abstract record ImageBox
     {
-        private ImageBox() : this(Guid.NewGuid()) { }
+        public Guid ID { get; init; } = Guid.NewGuid();
+
+        // Private constructor prevents extension of ImageBox from outside
+        private ImageBox() { }
 
         /// The image box does not currently contain an image
         public sealed record Empty : ImageBox;
@@ -22,8 +25,8 @@ namespace ImageLoader.Scripts.State
         /// The image box has an image loaded and ready to display
         public sealed record Loaded(Texture2D Texture) : ImageBox;
 
-        public Empty TransitionTo() => new() { ID = ID };
-        public Loading TransitionTo(string url) => new(url) { ID = ID };
-        public Loaded TransitionTo(Texture2D texture) => new(texture) { ID = ID };
+        public Empty TransitionToEmpty() => new() { ID = ID };
+        public Loading TransitionToLoading(string url) => new(url) { ID = ID };
+        public Loaded TransitionToLoaded(Texture2D texture) => new(texture) { ID = ID };
     }
 }
