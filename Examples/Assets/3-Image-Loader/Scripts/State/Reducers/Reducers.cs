@@ -25,10 +25,8 @@ namespace ImageLoader.Scripts.State.Reducers
         {
             var index = action.Slot;
 
-            if (images.Length < 1) throw new ArgumentException("Can't delete image slot from empty array", nameof(images));
-
-            // Throw IndexOutOfRangeException if provided index is not valid.
-            var _ = images[index];
+            ReducerValidators.ValidateLength(images);
+            ReducerValidators.ValidateIndex(images, index);
 
             var newArray = new ImageBox[images.Length - 1];
 
@@ -56,7 +54,8 @@ namespace ImageLoader.Scripts.State.Reducers
         {
             var (index, url) = action;
 
-            Validate(images);
+            ReducerValidators.ValidateLength(images);
+            ReducerValidators.ValidateIndex(images, index);
 
             var newImageBox = images[index].TransitionToLoading(url);
             return SetItem(images, index, newImageBox);
@@ -66,7 +65,8 @@ namespace ImageLoader.Scripts.State.Reducers
         {
             var (index, texture) = action;
 
-            Validate(images);
+            ReducerValidators.ValidateLength(images);
+            ReducerValidators.ValidateIndex(images, index);
             var slot = EnforceSlotType<ImageBox.Loading>(images[index]);
 
             var newImageBox = slot.TransitionToLoaded(texture);
@@ -76,22 +76,33 @@ namespace ImageLoader.Scripts.State.Reducers
         public static ImageBox[] ReduceClearSlot(ImageBox[] images, ClearImageSlotAction action)
         {
             var index = action.Slot;
-            Validate(images);
+            
+            ReducerValidators.ValidateLength(images);
+            ReducerValidators.ValidateIndex(images, index);
             var slot = EnforceSlotType<ImageBox.Loaded>(images[index]);
 
             var newImageBox = slot.TransitionToEmpty();
             return SetItem(images, index, newImageBox);
         }
 
-        private static void Validate(ImageBox[] images)
-        {
-            if (images.Length < 1) throw new ArgumentException("Can't modify slot in empty array", nameof(images));
-        }
-
         private static T EnforceSlotType<T>(ImageBox slot) where T : ImageBox
         {
             if (slot is T castSlot) return castSlot;
             throw new InvalidOperationException($"Slot is not expected type {nameof(ImageBox)}.{typeof(T).Name} | actual: {nameof(ImageBox)}.{slot.GetType().Name}");
+        }
+    }
+
+    internal static class ReducerValidators
+    {
+        internal static void ValidateLength(ImageBox[] images)
+        {
+            if (images.Length < 1) throw new ArgumentException("Can't modify slot in empty array", nameof(images));
+        }
+
+        internal static void ValidateIndex<T>(T[] images, int index)
+        {
+            // Attempts to get the element at the given index, throwing if it is an invalid index
+            var _ = images[index];
         }
     }
 }
