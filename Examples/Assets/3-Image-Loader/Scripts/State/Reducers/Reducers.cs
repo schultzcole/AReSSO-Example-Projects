@@ -53,9 +53,9 @@ namespace ImageLoader.Scripts.State.Reducers
         public static ImageBox[] ReduceImageRequest(ImageBox[] images, ImageRequestAction action)
         {
             var (index, url) = action;
-            
-            Validate(images, index);
-            
+
+            Validate(images);
+
             var newImageBox = images[index].TransitionToLoading(url);
             return SetItem(images, index, newImageBox);
         }
@@ -63,19 +63,19 @@ namespace ImageLoader.Scripts.State.Reducers
         public static ImageBox[] ReduceImageResult(ImageBox[] images, ImageResultAction action)
         {
             var (index, texture) = action;
-            
-            Validate(images, index);
 
-            var newImageBox = images[index].TransitionToLoaded(texture);
+            Validate(images);
+
+            var slot = images[index] as ImageBox.Loading;
+            if (slot is null) throw new ArgumentException($"Specified slot is not {nameof(ImageBox)}.{nameof(ImageBox.Loading)}", $"{nameof(action)}.{nameof(action.Slot)}");
+
+            var newImageBox = slot.TransitionToLoaded(texture);
             return SetItem(images, index, newImageBox);
         }
 
-        private static void Validate(ImageBox[] images, int index)
+        private static void Validate(ImageBox[] images)
         {
             if (images.Length < 1) throw new ArgumentException("Can't modify slot in empty array", nameof(images));
-            
-            // Throw IndexOutOfRangeException if provided index is not valid.
-            var _ = images[index];
         }
     }
 }

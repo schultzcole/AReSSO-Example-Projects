@@ -40,20 +40,30 @@ namespace ImageLoader.Tests.State.Reducers
 
             Assert.AreEqual(initialArray.Length, newArray.Length, "Reducer changed array length");
         }
-        
-        
+
         [Test]
-        public void ImageRequestChangesSpecifiedIndexToLoadedState()
+        public void ImageResultForNonLoadingSlotThrows()
+        {
+            var initialArray = new ImageBox[] { new ImageBox.Empty() };
+
+            Assert.Throws<ArgumentException>(
+                () => ModifyImageSlotReducer.ReduceImageResult(initialArray, new ImageResultAction(0, Texture2D.whiteTexture)),
+                "Reducer did not throw Argument exception when targeting non Loading slot"
+            );
+        }
+
+        [Test]
+        public void ImageResultChangesSpecifiedIndexToLoadedState()
         {
             var initialArray = new ImageBox[] { new ImageBox.Loading(""), new ImageBox.Loading(""), new ImageBox.Loading(""), new ImageBox.Loading(""), new ImageBox.Loading("") };
 
             var newArray = ModifyImageSlotReducer.ReduceImageResult(initialArray, new ImageResultAction(2, Texture2D.whiteTexture));
-            
+
             Assert.IsInstanceOf<ImageBox.Loaded>(newArray[2], "Modified slot was not of type Loaded");
         }
 
         [Test]
-        public void LoadingSlotHasCorrectTexture()
+        public void LoadedSlotHasCorrectTexture()
         {
             var initialArray = new ImageBox[] { new ImageBox.Loading("") };
 
@@ -64,7 +74,7 @@ namespace ImageLoader.Tests.State.Reducers
         }
 
         [Test]
-        public void ImageRequestDoesntChangeOtherIndices()
+        public void ImageResultDoesntChangeOtherIndices()
         {
             var initialArray = new ImageBox[] { new ImageBox.Loading(""), new ImageBox.Loading(""), new ImageBox.Loading(""), new ImageBox.Loading(""), new ImageBox.Loading("") };
 
@@ -72,7 +82,7 @@ namespace ImageLoader.Tests.State.Reducers
 
             void CheckIndex(int expectedIndex, int actualIndex) =>
                 Assert.AreEqual(initialArray[expectedIndex], newArray[actualIndex], $"Expected initial slot {expectedIndex} to match new slot {expectedIndex}");
-            
+
             CheckIndex(0, 0);
             CheckIndex(1, 1);
             CheckIndex(3, 3);

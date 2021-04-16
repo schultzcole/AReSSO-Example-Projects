@@ -1,5 +1,6 @@
 #nullable enable
 using System;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 namespace ImageLoader.Scripts.State
@@ -20,13 +21,16 @@ namespace ImageLoader.Scripts.State
         public sealed record Empty : ImageBox;
 
         /// The image box has sent a request for an image, but it is still in progress
-        public sealed record Loading(string URL) : ImageBox;
+        public sealed record Loading(string URL) : ImageBox
+        {
+            // Only the Loading state can transition to Loaded
+            public Loaded TransitionToLoaded(Texture2D texture) => new(texture) { ID = ID };
+        }
 
         /// The image box has an image loaded and ready to display
         public sealed record Loaded(Texture2D Texture) : ImageBox;
 
         public Empty TransitionToEmpty() => new() { ID = ID };
         public Loading TransitionToLoading(string url) => new(url) { ID = ID };
-        public Loaded TransitionToLoaded(Texture2D texture) => new(texture) { ID = ID };
     }
 }
