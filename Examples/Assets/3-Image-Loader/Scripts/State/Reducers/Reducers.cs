@@ -8,6 +8,9 @@ namespace ImageLoader.Scripts.State.Reducers
     {
         public static ImageBox[] Reduce(ImageBox[] images, AddNewImageSlotAction action)
         {
+            // discard action. We want to make sure the caller *has* an AddNewImageSlotAction to pass in, but the action itself doesn't have any information we need to do the reduce
+            var _ = action;
+
             var newArray = new ImageBox[images.Length + 1];
             Array.Copy(images, 0, newArray, 0, images.Length);
             newArray[newArray.Length - 1] = new ImageBox.Empty();
