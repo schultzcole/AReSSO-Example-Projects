@@ -7,9 +7,6 @@ using UnityEngine;
 namespace PlayduxExamples.TicTacToe.Scripts.State
 {
     /// The main store for the TicTacToe game.
-    ///
-    /// Execution order is important. In future versions of AReSSO this should be set on StoreBehaviour
-    [DefaultExecutionOrder(-1)]
     public class TicTacToeStore : StoreBehaviour<TicTacToeState>
     {
         protected override Store<TicTacToeState> InitializeStore()

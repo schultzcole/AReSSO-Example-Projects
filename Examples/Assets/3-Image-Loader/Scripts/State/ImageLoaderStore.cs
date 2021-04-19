@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace ImageLoader.Scripts.State
 {
-    [DefaultExecutionOrder(-1)]
     public class ImageLoaderStore : StoreBehaviour<ImageLoaderState>
     {
         [SerializeField] private ImageBoxSpawner? spawnerSideEffector;
