@@ -17,7 +17,8 @@ namespace PlayduxExamples.TicTacToe.Scripts.TurnIndicator
         private void Awake()
         {
             store!.ObservableFor(Select.CurrentPlayer)
-                .Subscribe(currentPlayer => text!.text = $"Turn: {currentPlayer}");
+                .ObserveOnMainThread()
+                .Subscribe(currentPlayer => text!.text = $"Turn: {currentPlayer}", Debug.LogError);
         }
     }
 }

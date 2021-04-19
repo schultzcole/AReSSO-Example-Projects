@@ -19,7 +19,8 @@ namespace PlayduxExamples.TicTacToe.Scripts.WinModal
         private void Awake()
         {
             store!.ObservableFor(Select.Winner)
-                .Subscribe(HandleStateChange);
+                .ObserveOnMainThread()
+                .Subscribe(HandleStateChange, Debug.LogError);
         }
 
         /// Should be self-explanatory given its simplicity.

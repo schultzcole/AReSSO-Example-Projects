@@ -25,7 +25,8 @@ namespace PlayduxExamples.TicTacToe.Scripts.BoardTile
         {
             // the component gets an observable for its corresponding location in the grid, and reacts to any changes
             // to that location's state.
-            store!.ObservableFor(SelectorFor.GridLoc(location)).Subscribe(HandleStateChange);
+            // ObserveOnMainThread is required to be able to modify Unity GameObjects in the handler.
+            store!.ObservableFor(SelectorFor.GridLoc(location)).ObserveOnMainThread().Subscribe(HandleStateChange, Debug.LogError);
         }
 
         /// Note that we explicitly set this component's relevant state for each case.
