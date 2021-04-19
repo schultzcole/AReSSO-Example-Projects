@@ -15,7 +15,7 @@ namespace ImageLoader.Scripts.State
         protected override Store<ImageLoaderState> InitializeStore()
         {
             return new(
-                new ImageLoaderState(new ImageBox[] { new ImageBox.Empty(), new ImageBox.Loading("blah"), new ImageBox.Loaded(Texture2D.normalTexture) }),
+                new ImageLoaderState(new ImageBox[] { new ImageBox.Empty(), new ImageBox.Empty(), new ImageBox.Empty() }),
                 RootReducer,
                 new[] { spawnerSideEffector! }
             );
@@ -23,12 +23,14 @@ namespace ImageLoader.Scripts.State
 
         private static ImageLoaderState RootReducer(ImageLoaderState state, IAction action)
         {
+            Debug.Log($"Action Dispatched!\n\t{action}");
             return action switch
             {
                 AddNewImageSlotAction a => state with { Images = AddNewImageSlotReducer.Reduce(state.Images, a) },
                 DeleteImageSlotAction a => state with { Images = DeleteImageSlotReducer.Reduce(state.Images, a) },
                 ImageRequestAction a => state with { Images = ModifyImageSlotReducer.ReduceImageRequest(state.Images, a) },
                 ImageResultAction a => state with { Images = ModifyImageSlotReducer.ReduceImageResult(state.Images, a) },
+                ClearImageSlotAction a => state with { Images = ModifyImageSlotReducer.ReduceClearSlot(state.Images, a) }, 
                 InitializeAction<ImageLoaderState> => state,
                 _ => throw new ArgumentException($"Unrecognized action type: {action.GetType().Name}", nameof(action))
             };
