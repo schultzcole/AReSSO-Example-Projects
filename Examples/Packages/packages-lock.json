@@ -168,13 +168,13 @@
       }
     },
     "dev.coleschultz.playdux": {
-      "version": "git@github.com:schultzcole/Playdux.git",
+      "version": "https://github.com/schultzcole/Playdux.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.neuecc.unirx": "7.1.0"
       },
-      "hash": "87e9cbe93984c7fbc4f846179e6e49b6f31d37bc"
+      "hash": "92b101d4f85c7ae33a7a2bcd7f49821b5b058f0c"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
