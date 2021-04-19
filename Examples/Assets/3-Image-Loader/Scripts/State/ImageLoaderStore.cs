@@ -16,7 +16,7 @@ namespace ImageLoader.Scripts.State
             return new(
                 new ImageLoaderState(new ImageBox[] { new ImageBox.Empty(), new ImageBox.Empty(), new ImageBox.Empty() }),
                 RootReducer,
-                new[] { spawnerSideEffector! }
+                new ISideEffector<ImageLoaderState>[] { spawnerSideEffector!, new ImageRequestHandler() }
             );
         }
 
