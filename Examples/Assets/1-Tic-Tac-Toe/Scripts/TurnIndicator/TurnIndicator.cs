@@ -16,7 +16,7 @@ namespace PlayduxExamples.TicTacToe.Scripts.TurnIndicator
         /// Subscriptions to the store should be done in Awake.
         private void Awake()
         {
-            store!.ObservableFor(Select.CurrentPlayer)
+            store!.ObservableFor(Select.CurrentPlayer, true)
                 .ObserveOnMainThread()
                 .Subscribe(currentPlayer => text!.text = $"Turn: {currentPlayer}", Debug.LogError);
         }
