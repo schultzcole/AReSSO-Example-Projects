@@ -18,9 +18,10 @@ namespace ImageLoader.Scripts
 
         public bool PreEffect(DispatchedAction dispatchedAction, IStore<ImageLoaderState> store)
         {
-            if (!dispatchedAction.IsCanceled && dispatchedAction.Action is not ImageRequestAction) return true;
+            if (dispatchedAction.IsCanceled) return true;
+            if (dispatchedAction.Action is not ImageRequestAction action) return true;
 
-            var (slot, url) = (dispatchedAction.Action as ImageRequestAction)!;
+            var (slot, url) = action;
             LaunchRequest(slot, url, store);
             return true;
         }
@@ -29,10 +30,11 @@ namespace ImageLoader.Scripts
         {
             Texture2D? texture = null;
             try { texture = await LoadRemoteTexture(url); }
-            catch (IOException e)
+            catch (IOException e) { Debug.LogException(e); }
+            catch (Exception e)
             {
-                Debug.LogError("An error occurred while retrieving an image");
                 Debug.LogException(e);
+                throw;
             }
 
             if (texture is null) return;
