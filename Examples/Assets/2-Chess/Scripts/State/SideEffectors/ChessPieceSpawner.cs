@@ -59,12 +59,12 @@ namespace PlayduxExamples.Chess.Scripts
             for (var i = 0; i < pieces.Length; i++)
             {
                 var ((team, piece), loc, _) = pieces[i];
-                
+
                 // Spawn piece instance
                 var prefab = PrefabFromPiece(piece);
                 var instanceObject = Instantiate(prefab, loc.ToVector3(), Quaternion.identity);
                 if (instanceObject is null) throw new InvalidOperationException("Instance of piece not properly created");
-                
+
                 // Set piece orientation (black faces "down", white faces "up")
                 if (team is ChessTeam.White) instanceObject.transform.Rotate(Vector3.up, 180f);
 
@@ -79,9 +79,9 @@ namespace PlayduxExamples.Chess.Scripts
                 // Initialize instance state listener
                 var stateListener = instanceObject.GetComponent<ChessPieceStateListener>();
                 if (stateListener is null) throw new InvalidOperationException("Created instance did not have a component of type ChessPieceInstance");
-                
+
                 stateListener.Initialize(store.ObservableFor(SelectorGenerator.ForPiece(i)));
-                
+
                 // Store piece instance
                 existingInstanceObjects.Add(instanceObject);
             }
@@ -90,6 +90,7 @@ namespace PlayduxExamples.Chess.Scripts
         private void ClearExistingObjects()
         {
             foreach (var existing in existingInstanceObjects) { Destroy(existing); }
+
             existingInstanceObjects.Clear();
         }
 
