@@ -1,5 +1,6 @@
 #nullable enable
 using Playdux.src.Store;
+using PlayduxExamples.Chess.Scripts.ChessPieceInstance;
 using PlayduxExamples.Chess.Scripts.State.Actions;
 using PlayduxExamples.Chess.Scripts.State.Reducers;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace PlayduxExamples.Chess.Scripts.State
 {
     public class ChessStore : StoreBehaviour<ChessState>
     {
-        [SerializeField] private ChessPieceSpawner? spawner;
+        [SerializeField] private ChessPieceInstanceCollection? spawner;
         
         protected override Store<ChessState> InitializeStore() => new(ChessState.InitialState, RootReducer, new[] { spawner! });
 

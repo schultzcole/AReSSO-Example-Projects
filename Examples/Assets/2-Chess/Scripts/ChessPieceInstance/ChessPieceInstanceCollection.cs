@@ -8,9 +8,9 @@ using PlayduxExamples.Chess.Scripts.State;
 using PlayduxExamples.Chess.Scripts.State.Selectors;
 using UnityEngine;
 
-namespace PlayduxExamples.Chess.Scripts
+namespace PlayduxExamples.Chess.Scripts.ChessPieceInstance
 {
-    public class ChessPieceSpawner : MonoBehaviour, ISideEffector<ChessState>
+    public class ChessPieceInstanceCollection : MonoBehaviour, ISideEffector<ChessState>
     {
         [Header("Material Config")]
         [SerializeField] private Material? baseMaterial;
@@ -47,7 +47,7 @@ namespace PlayduxExamples.Chess.Scripts
             UniTask.Run(() => SpawnPieces(store));
         }
 
-        private async UniTask SpawnPieces(IStateContainer<ChessState> store)
+        private async UniTask SpawnPieces(IStore<ChessState> store)
         {
             // Ensure Awake has been called prior to spawning pieces
             if (whiteMaterial is null || blackMaterial is null) await UniTask.WaitUntil(() => whiteMaterial is not null && blackMaterial is not null);
@@ -78,9 +78,17 @@ namespace PlayduxExamples.Chess.Scripts
 
                 // Initialize instance state listener
                 var stateListener = instanceObject.GetComponent<ChessPieceStateListener>();
-                if (stateListener is null) throw new InvalidOperationException("Created instance did not have a component of type ChessPieceInstance");
+                if (stateListener is null) throw new InvalidOperationException($"Created instance did not have a component of type {nameof(ChessPieceStateListener)}");
 
                 stateListener.Initialize(store.ObservableFor(SelectorGenerator.ForPiece(i)));
+                
+                // Initialize instance animator
+                var animator = instanceObject.GetComponent<ChessPieceAnimator>();
+                if (animator is null) throw new InvalidOperationException($"Created instance did not have a component of type {nameof(ChessPieceAnimator)}");
+                
+                animator.Initialize(i);
+
+                store.RegisterSideEffector(animator);
 
                 // Store piece instance
                 existingInstanceObjects.Add(instanceObject);

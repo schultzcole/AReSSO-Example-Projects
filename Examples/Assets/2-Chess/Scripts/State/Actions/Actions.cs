@@ -4,5 +4,5 @@ using PlayduxExamples.Chess.Scripts.Common;
 
 namespace PlayduxExamples.Chess.Scripts.State.Actions
 {
-    public record MovePieceAction(int Index, ChessLocation NewLocation) : IAction;
+    public record MovePieceAction(int Index, ChessLocation NewLocation, bool Animate = true) : IAction;
 }
