@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 
 namespace PlayduxExamples.Chess.Scripts.Common

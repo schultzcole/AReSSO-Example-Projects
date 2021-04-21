@@ -1,9 +1,7 @@
-using System.Collections.Generic;
+#nullable enable
 using PlayduxExamples.Chess.Scripts.Common;
 using static PlayduxExamples.Chess.Scripts.Common.ChessPiece;
 using static PlayduxExamples.Chess.Scripts.Common.ChessTeam;
-
-#nullable enable
 
 namespace PlayduxExamples.Chess.Scripts.State
 {
