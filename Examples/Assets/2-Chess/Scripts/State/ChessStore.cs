@@ -6,10 +6,9 @@ namespace PlayduxExamples.Chess.Scripts.State
 {
     public class ChessStore : StoreBehaviour<ChessState>
     {
-        protected override Store<ChessState> InitializeStore()
-        {
-            return new(ChessState.InitialState, RootReducer);
-        }
+        [SerializeField] private ChessPieceSpawner? spawner;
+        
+        protected override Store<ChessState> InitializeStore() => new(ChessState.InitialState, RootReducer, new[] { spawner! });
 
         private static ChessState RootReducer(ChessState state, IAction action)
         {
