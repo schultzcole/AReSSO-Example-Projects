@@ -5,9 +5,9 @@ using static PlayduxExamples.Chess.Scripts.Common.ChessTeam;
 
 namespace PlayduxExamples.Chess.Scripts.State
 {
-    public record ChessState(ChessTeam CurrentTeam, List<ChessPieceState> Pieces)
+    public record ChessState(ChessTeam CurrentTeam, ChessPieceState[] Pieces)
     {
-        public static ChessState InitialState => new(White, new List<ChessPieceState>
+        public static ChessState InitialState => new(White, new ChessPieceState[]
         {
             // White Pieces
             new((White, Pawn), (Rank.Two, File.A)),
