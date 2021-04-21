@@ -3,7 +3,7 @@ using System;
 
 namespace PlayduxExamples.Chess.Scripts.Common
 {
-    public record ChessPieceState(ChessPieceIdentity Identity, ChessLocation Location);
+    public record ChessPieceState(ChessPieceIdentity Identity, ChessLocation Location, bool Alive = true);
 
     public record ChessPieceIdentity(ChessTeam Team, ChessPiece Piece)
     {
