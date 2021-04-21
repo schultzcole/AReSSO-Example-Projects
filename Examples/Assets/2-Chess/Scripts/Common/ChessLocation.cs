@@ -19,5 +19,7 @@ namespace PlayduxExamples.Chess.Scripts.Common
         public static int ToZPos(this Rank rank) => (int)rank;
 
         public static Vector3 ToVector3(this ChessLocation loc) => new(loc.File.ToXPos(), 0, loc.Rank.ToZPos());
+
+        public static ChessLocation ChessLocationFromXZ(this ValueTuple<int, int> loc) => new((Rank)loc.Item1, (File)loc.Item2);
     }
 }

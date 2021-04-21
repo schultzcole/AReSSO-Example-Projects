@@ -1,5 +1,7 @@
 #nullable enable
 using Playdux.src.Store;
+using PlayduxExamples.Chess.Scripts.State.Actions;
+using PlayduxExamples.Chess.Scripts.State.Reducers;
 using UnityEngine;
 
 namespace PlayduxExamples.Chess.Scripts.State
@@ -15,6 +17,7 @@ namespace PlayduxExamples.Chess.Scripts.State
             Debug.Log($"<b>Action dispatched:</b>\n\t{action}");
             return action switch
             {
+                MovePieceAction a => state with { Pieces = MovePieceReducer.Reduce(state.Pieces, a) },
                 _ => state
             };
         }
