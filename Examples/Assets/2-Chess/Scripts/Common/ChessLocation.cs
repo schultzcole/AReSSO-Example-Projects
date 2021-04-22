@@ -1,5 +1,6 @@
 #nullable enable
 using System;
+using UnityEngine;
 
 namespace PlayduxExamples.Chess.Scripts.Common
 {
@@ -11,4 +12,14 @@ namespace PlayduxExamples.Chess.Scripts.Common
     public enum Rank { One, Two, Three, Four, Five, Six, Seven, Eight }
 
     public enum File { A, B, C, D, E, F, G, H }
+    
+    public static class RankAndFileExtensions
+    {
+        public static int ToXPos(this File file) => (int)file;
+        public static int ToZPos(this Rank rank) => (int)rank;
+
+        public static Vector3 ToVector3(this ChessLocation loc) => new(loc.File.ToXPos(), 0, loc.Rank.ToZPos());
+
+        public static ChessLocation ChessLocationFromXZ(this ValueTuple<int, int> loc) => new((Rank)loc.Item1, (File)loc.Item2);
+    }
 }
